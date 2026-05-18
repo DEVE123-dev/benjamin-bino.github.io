@@ -1,182 +1,347 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Benjamin Bino | Portfolio</title>
   <style>
-    body {
-      margin: 0;
-      font-family: 'Segoe UI', sans-serif;
-      background: linear-gradient(135deg, #000000 50%, #FFD700 50%);
-      background-size: 100% 200px;
-      color: #f5f5f5;
+    :root{
+      --gold:#FFD700;
+      --black:#000;
+      --bg-gradient: linear-gradient(135deg, var(--black) 50%, var(--gold) 50%);
+      --card-bg: rgba(0,0,0,0.85);
+      --max-width: 1100px;
+      --radius: 10px;
+      --gap: 1rem;
+      --text: #f5f5f5;
     }
 
-    header {
-      background-color: #000;
-      color: #FFD700;
-      text-align: center;
-      padding: 2rem 1rem;
-      border-bottom: 4px solid #FFD700;
+    /* Reset & base */
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{
+      margin:0;
+      font-family: "Segoe UI", Roboto, system-ui, -apple-system, "Helvetica Neue", Arial;
+      background: var(--bg-gradient);
+      background-size: 100% 220px;
+      color:var(--text);
+      -webkit-font-smoothing:antialiased;
+      -moz-osx-font-smoothing:grayscale;
+      line-height:1.5;
     }
 
-    h1 {
-      margin: 0;
-      font-size: 2.5rem;
+    /* Page container */
+    .container{
+      max-width:var(--max-width);
+      margin: 1rem auto 3rem;
+      padding: 0 1rem;
     }
 
-    h2 {
-      color: #FFD700;
-      border-bottom: 2px solid #FFD700;
-      padding-bottom: 0.3rem;
+    /* Sticky header / nav */
+    header{
+      background:var(--black);
+      color:var(--gold);
+      text-align:center;
+      padding:1.25rem 1rem;
+      border-bottom:4px solid var(--gold);
+      position:sticky;
+      top:0;
+      z-index:40;
+    }
+    header .top{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:1rem;
+      max-width:var(--max-width);
+      margin:0 auto;
+      padding:0 1rem;
+    }
+    header h1{margin:0;font-size:1.6rem}
+    header p{margin:0;font-size:0.95rem;color:#e6c84d}
+
+    /* Nav */
+    nav{
+      display:flex;
+      gap:0.5rem;
+      align-items:center;
+      flex-wrap:wrap;
+    }
+    nav a{
+      color:var(--gold);
+      text-decoration:none;
+      background:transparent;
+      padding:6px 10px;
+      border-radius:6px;
+      font-size:0.9rem;
+    }
+    nav a:hover{background:rgba(255,215,0,0.08)}
+
+    /* Sections */
+    section{
+      background:var(--card-bg);
+      margin:var(--gap) 0;
+      padding:1.25rem;
+      border-radius:var(--radius);
+      box-shadow: 0 2px 8px rgba(0,0,0,0.35);
+    }
+    section h2{
+      color:var(--gold);
+      margin:0 0 0.75rem 0;
+      padding-bottom:0.25rem;
+      border-bottom:2px solid var(--gold);
+      display:inline-block;
+      font-size:1.15rem;
     }
 
-    section {
-      padding: 2rem;
-      background-color: rgba(0, 0, 0, 0.85);
-      margin: 1rem auto;
-      border-radius: 8px;
-      max-width: 1000px;
-      width: 95%;
+    /* About */
+    .about{
+      display:flex;
+      gap:1rem;
+      align-items:flex-start;
+      flex-wrap:wrap;
+    }
+    .profile-img{
+      width:160px;
+      max-width:40%;
+      border-radius:8px;
+      border:3px solid var(--gold);
+      object-fit:cover;
+      flex:0 0 160px;
+      background:#111;
+    }
+    .about p{flex:1 1 320px;margin:0}
+
+    /* Projects list */
+    ul.projects{list-style:none;padding:0;margin:0;display:grid;grid-template-columns:repeat(2,1fr);gap:0.75rem}
+    ul.projects li{
+      background:linear-gradient(90deg,#000,#111);
+      padding:0.9rem;
+      border-left:5px solid var(--gold);
+      border-radius:6px;
+      font-size:0.95rem;
+    }
+    ul.projects li a{display:inline-block;margin-top:0.5rem;color:var(--gold)}
+
+    /* Single-column for lists like certifications/skills */
+    ul.simple{list-style:none;padding:0;margin:0}
+    ul.simple li{padding:0.45rem 0;border-bottom:1px dashed rgba(255,215,0,0.06)}
+
+    /* Buttons */
+    .btn{
+      display:inline-block;
+      padding:10px 16px;
+      border-radius:6px;
+      text-decoration:none;
+      font-weight:600;
+      margin-right:0.5rem;
+    }
+    .btn.gold{background:var(--gold);color:#000}
+    .btn.dark{background:var(--black);color:var(--gold);border:1px solid rgba(255,215,0,0.06)}
+
+    /* Footer / contact */
+    .contact p{margin:0.25rem 0}
+
+    /* Responsive rules - mobile first */
+    @media (max-width:900px){
+      ul.projects{grid-template-columns:repeat(1,1fr)}
+      .profile-img{max-width:180px;flex-basis:180px}
     }
 
-    ul {
-      list-style-type: none;
-      padding: 0;
+    @media (max-width:600px){
+      header .top{flex-direction:column;align-items:flex-start;padding:0.75rem 1rem}
+      header h1{font-size:1.25rem}
+      header p{font-size:0.9rem}
+      .about{flex-direction:column;align-items:center;text-align:center}
+      .about p{text-align:left}
+      .profile-img{margin:0 auto}
+      section{padding:0.9rem}
+      nav{justify-content:center;width:100%}
+      nav a{font-size:0.85rem;padding:6px 8px}
     }
 
-    li {
-      background: linear-gradient(to right, #000000, #1a1a1a);
-      padding: 1rem;
-      margin: 0.5rem 0;
-      border-left: 5px solid #FFD700;
-      border-radius: 4px;
-      word-wrap: break-word;
+    /* Small tweaks for very small screens */
+    @media (max-width:380px){
+      header h1{font-size:1.05rem}
+      .profile-img{width:140px;flex-basis:140px}
+      .btn{padding:8px 10px;font-size:0.9rem}
     }
 
-    a {
-      color: #FFD700;
-      text-decoration: none;
-      display: inline-block;
-      padding: 8px 12px;
-      margin-top: 5px;
-      border-radius: 5px;
-    }
-
-    a:hover {
-      text-decoration: underline;
-    }
-
-    .profile-img {
-      width: 100%;
-      max-width: 200px;
-      border-radius: 10px;
-      border: 3px solid #FFD700;
-      display: block;
-      margin: 1rem auto;
-    }
-
-    /* Responsive adjustments */
-    @media (max-width: 768px) {
-      h1 {
-        font-size: 2rem;
-      }
-      section {
-        padding: 1.5rem;
-      }
-    }
-
-    @media (max-width: 480px) {
-      h1 {
-        font-size: 1.6rem;
-      }
-      h2 {
-        font-size: 1.2rem;
-      }
-      section {
-        padding: 1rem;
-      }
-      .profile-img {
-        max-width: 150px;
-      }
-      a {
-        width: 100%;
-        text-align: center;
-        margin-top: 10px;
-      }
-    }
+    /* Utility */
+    .muted{color:#d9c77a;font-size:0.95rem}
+    .small{font-size:0.9rem}
   </style>
 </head>
 <body>
   <header>
-    <h1>Benjamin Bino</h1>
-    <p>Information Technology Student | IT Enthusiast</p>
+    <div class="top">
+      <div>
+        <h1>Benjamin Bino</h1>
+        <p class="muted">Information Technology Student | IT Enthusiast</p>
+      </div>
+
+      <nav aria-label="Main navigation">
+        <a href="#about">About</a>
+        <a href="#projects">Projects</a>
+        <a href="#certifications">Certifications</a>
+        <a href="#skills">Skills</a>
+        <a href="#resume">Resume</a>
+        <a href="#diploma">Diploma</a>
+        <a href="#contact">Contact</a>
+      </nav>
+    </div>
   </header>
 
-  <!-- About Section -->
-  <section id="about">
-    <h2>About Me</h2>
-    <img src="benjamin.jpg" alt="Benjamin Bino" class="profile-img" />
-    <p>
-      Third year Information Technology student at IBSU, specializing in web development, application development, data analysis, database (SQL), object oriented programming and more. I'm currently developing a cross-platform, ad-free music player app as part of my portfolio, while actively pursuing internships in IT and digital innovation to gain more skills, knowledge and experience.
-    </p>
-  </section>
+  <main class="container">
+    <!-- About -->
+    <section id="about">
+      <h2>About Me</h2>
+      <div class="about">
+        <img src="benjamin.jpg" alt="Benjamin Bino" class="profile-img" />
+        <div>
+          <p>
+            Third year (3) Information Technology student at IBSU, specializing in web development, application development, data analysis, database (SQL), object oriented programming and many more. I'm currently developing a cross-platform, ad-free music player app as part of my portfolio, while actively pursuing other as well as internships opportunities in IT and digital innovation in order to gain more skills, knowledge and experience.
+          </p>
+          <p class="small muted" style="margin-top:0.6rem">
+            Location: Papua New Guinea · Open to internships and collaboration
+          </p>
+        </div>
+      </div>
+    </section>
 
-  <!-- Projects Section -->
-  <section id="projects">
-    <h2>Projects</h2>
-    <ul>
-      <!-- Existing projects remain here -->
-      <!-- Your new project entries (ChatBot.deve, Daily Motivation App, GPA Calculator, Sepik Fresh, Omni-Farm Guardian, SpecBench) are already included -->
-    </ul>
-  </section>
+    <!-- Projects -->
+    <section id="projects">
+      <h2>Projects</h2>
+      <ul class="projects">
+        <li>
+          <strong>Bookstore Website</strong><br>
+          A functional online bookstore with cart, checkout, and book listings. Built using HTML, CSS and JavaScript.
+          <br><a href="https://deve123-dev.github.io/websites-/" target="_blank" rel="noopener">Visit My Website</a>
+        </li>
 
-  <!-- Certifications Section -->
-  <section id="certifications">
-    <h2>Certifications</h2>
-    <p>Here are selected certifications that highlight my core IT, AI, and data skills:</p>
-    <ul>
-      <!-- Certification links remain unchanged -->
-    </ul>
-  </section>
+        <li>
+          <strong>BaKery Website</strong><br>
+          Front-end website for Cathlyn’s Baked Goods.
+          <br><a href="https://deve123-dev.github.io/bakery/" target="_blank" rel="noopener">Visit My Website</a>
+        </li>
 
-  <!-- Skills Section -->
-  <section id="skills">
-    <h2>Skills & Badges</h2>
-    <p>These verified badges from Cisco Networking Academy reflect my foundational and applied skills in IT, cybersecurity, and AI:</p>
-    <ul>
-      <!-- Skills list remains unchanged -->
-    </ul>
-  </section>
+        <li>
+          <strong>Budgeting WebApp</strong><br>
+          Front-end budget app named Budget Friendly.
+          <br><a href="https://deve123-dev.github.io/BudgetWebApp/" target="_blank" rel="noopener">Visit My Website</a>
+        </li>
 
-  <!-- Resume Section -->
-  <section id="resume">
-    <h2>Resume</h2>
-    <p>You can view or download my resume below:</p>
-    <div style="margin-top: 1rem;">
-      <a href="Benjamin_Bino_Resume.pdf" target="_blank" style="background-color:#FFD700; color:#000;">View Resume</a>
-      <a href="Benjamin_Bino_Resume.pdf" download style="background-color:#000; color:#FFD700;">Download Resume</a>
-    </div>
-  </section>
+        <li>
+          <strong>RPNGC Emergency Dispatch System</strong><br>
+          A real-time emergency response and dispatch management system built for the Royal Papua New Guinea Constabulary (RPNGC). Features include citizen, officer, and HQ portals, live GPS tracking, incident lifecycle management, secure JWT authentication, in-incident messaging, and analytics dashboards.
+          <br><a href="https://github.com/DEVE123-dev/RPNGC-eds.git" target="_blank" rel="noopener">View Project on GitHub</a>
+        </li>
 
-  <!-- Diploma Section -->
-  <section id="diploma">
-    <h2>Diploma</h2>
-    <p>You can view or download my diploma below:</p>
-    <div style="margin-top: 1rem;">
-      <a href="DIGITAL COPY DIPLOMA.pdf" target="_blank" style="background-color:#FFD700; color:#000;">View Diploma</a>
-      <a href="DIGITAL COPY DIPLOMA.pdf" download style="background-color:#000; color:#FFD700;">Download Diploma</a>
-    </div>
-  </section>
+        <li>
+          <strong>Devetext - AI powered text processing tool</strong><br>
+          A powerful web application that uses AI models to paraphrase, humanize, and detect AI-generated text.
+          <br><a href="https://devetext-frontend.onrender.com" target="_blank" rel="noopener">View Project on Render</a>
+        </li>
 
-  <!-- Contact Section -->
-  <section id="contact">
-    <h2>Contact</h2>
-    <p>Phone: +675 76831365</p>
-    <p>Phone: +675 74890262</p>
-    <p>Email: devesmash79@gmail.com | benjaminbino19@gmail.com</p>
-    <p>LinkedIn: <a href="https://www.linkedin.com/in/benjamin-bino-9083b3263/" target="_blank">linkedin.com/in/benjamin-bino</a></p>
-  </section>
+        <li>
+          <strong>ChatBot.deve – AI Chatbot</strong><br>
+          Streamlit-based chatbot powered by Groq’s Llama 3.3 70B model with a black-and-gold UI and chat history management.
+          <br><a href="https://github.com/DEVE123-dev/chatBot.deve.git" target="_blank" rel="noopener">View Project on GitHub</a>
+        </li>
+
+        <li>
+          <strong>Daily Motivation App</strong><br>
+          Native Android app in Kotlin (Jetpack Compose) showing daily quotes, favorites, and offline support.
+          <br><a href="https://github.com/DEVE123-dev/Daily-Motivation-App" target="_blank" rel="noopener">View Project on GitHub</a>
+        </li>
+
+        <li>
+          <strong>GPA Calculator</strong><br>
+          Responsive web app to calculate Grade Point Average. Built with HTML, CSS, and JavaScript.
+          <br><a href="https://github.com/DEVE123-dev/GPA-Calculator" target="_blank" rel="noopener">View Project on GitHub</a>
+          <br><a href="https://deve123-dev.github.io/GPA-Calculator/" target="_blank" rel="noopener">Try the Live App</a>
+        </li>
+
+        <li>
+          <strong>Sepik Fresh Order Tracking System</strong><br>
+          Web-based platform for managing poultry and egg deliveries with role-based access and real-time tracking.
+          <br><a href="https://github.com/DEVE123-dev/Sepik-Fresh-Order-Tracking-System-" target="_blank" rel="noopener">View Project on GitHub</a>
+        </li>
+
+        <li>
+          <strong>Omni-Farm Guardian</strong><br>
+          Universal livestock management tool using computer vision to automatically identify animals.
+          <br><a href="https://github.com/DEVE123-dev/Omni-farm-guardian-" target="_blank" rel="noopener">View Project on GitHub</a>
+        </li>
+
+        <li>
+          <strong>SpecBench – Device Specs Utility</strong><br>
+          Utility app for gamers to check and benchmark device specifications.
+          <br><a href="https://github.com/DEVE123-dev/specbench" target="_blank" rel="noopener">View Project on GitHub</a>
+        </li>
+      </ul>
+    </section>
+
+    <!-- Certifications -->
+    <section id="certifications">
+      <h2>Certifications</h2>
+      <p>Here are selected certifications that highlight my core IT, AI, and data skills:</p>
+      <ul class="simple">
+        <li><a href="computer basics cert. cisco.pdf" target="_blank" rel="noopener">Cisco Networking Academy – Computer Hardware Basics</a></li>
+        <li><a href="data science cert cisco.pdf" target="_blank" rel="noopener">Cisco Networking Academy – Introduction to Data Science</a></li>
+        <li><a href="learn a thon cert. cisco.pdf" target="_blank" rel="noopener">Cisco Networking Academy – Learn-A-Thon Achievement Award</a></li>
+        <li><a href="Introduction_to_Modern_AI_certificate_devesmash79-gmail-com_95b6e360-e364-4a2a-a078-24d8a3a07fdc (1).pdf" target="_blank" rel="noopener">Cisco – Introduction to Modern AI (via IBSUniversity)</a></li>
+        <li><a href="IBM cert data fundamentals.pdf" target="_blank" rel="noopener">IBM SkillsBuild – Data Fundamentals</a></li>
+        <li><a href="Work with compute Targets in azure machine learning.pdf" target="_blank" rel="noopener">Microsoft – Work with Compute Targets in Azure Machine Learning</a></li>
+        <li><a href="INTRODUCTION TO AI CONCEPTS.pdf" target="_blank" rel="noopener">Microsoft – Introduction to AI Concepts</a></li>
+        <li><a href="cyber.pdf" target="_blank" rel="noopener">Cisco – Introduction to CyberSecurity</a></li>
+      </ul>
+    </section>
+
+    <!-- Skills -->
+    <section id="skills">
+      <h2>Skills & Badges</h2>
+      <ul class="simple">
+        <li><strong>IT Essentials</strong> – Hardware, software, and troubleshooting fundamentals</li>
+        <li><strong>Operating Systems Basics</strong> – OS architecture, file systems, and user management</li>
+        <li><strong>Introduction to Cybersecurity</strong> – Threats, vulnerabilities, and basic defense strategies</li>
+        <li><strong>Introduction to Modern AI</strong> – AI concepts and applications</li>
+        <li><strong>Introduction to Data Science</strong> – Data analysis, visualization, and basic modeling</li>
+        <li><strong>Computer Hardware Basics</strong> – Components, assembly, and performance optimization</li>
+        <li><strong>Introduction to Packet Tracer</strong> – Network simulation and device configuration</li>
+      </ul>
+    </section>
+
+    <!-- Resume -->
+    <section id="resume">
+      <h2>Resume</h2>
+      <p>You can view or download my resume below:</p>
+      <div style="margin-top:1rem">
+        <a class="btn gold" href="Benjamin_Bino_Resume.pdf" target="_blank" rel="noopener">View Resume</a>
+        <a class="btn dark" href="Benjamin_Bino_Resume.pdf" download>Download Resume</a>
+      </div>
+    </section>
+
+    <!-- Diploma -->
+    <section id="diploma">
+      <h2>Diploma</h2>
+      <p>You can view or download my diploma below:</p>
+      <div style="margin-top:1rem">
+        <a class="btn gold" href="DIGITAL COPY DIPLOMA.pdf" target="_blank" rel="noopener">View Diploma</a>
+        <a class="btn dark" href="DIGITAL COPY DIPLOMA.pdf" download>Download Diploma</a>
+      </div>
+    </section>
+
+    <!-- Contact -->
+    <section id="contact">
+      <h2>Contact</h2>
+      <div class="contact">
+        <p>Phone: +675 76831365</p>
+        <p>Phone: +675 74890262</p>
+        <p>Email: devesmash79@gmail.com | benjaminbino19@gmail.com</p>
+        <p>LinkedIn: <a href="https://www.linkedin.com/in/benjamin-bino-9083b3263/" target="_blank" rel="noopener">linkedin.com/in/benjamin-bino</a></p>
+      </div>
+    </section>
+  </main>
 </body>
 </html>
