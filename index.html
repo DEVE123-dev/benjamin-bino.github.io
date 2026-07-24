@@ -4,195 +4,59 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Benjamin Bino | Portfolio</title>
-  <style>
-    :root{
-      --gold:#FFD700;
-      --black:#000;
-      --bg-gradient: linear-gradient(135deg, var(--black) 50%, var(--gold) 50%);
-      --card-bg: rgba(0,0,0,0.85);
-      --max-width: 1100px;
-      --radius: 10px;
-      --gap: 1rem;
-      --text: #f5f5f5;
-    }
+  <meta name="description" content="Benjamin Bino — Information Technology student and developer building web apps, an Android app, and AI-powered tools. Projects, certifications, resume, and contact info." />
+  <meta name="theme-color" content="#131315" />
 
-    /* Reset & base */
-    *{box-sizing:border-box}
-    html,body{height:100%}
-    body{
-      margin:0;
-      font-family: "Segoe UI", Roboto, system-ui, -apple-system, "Helvetica Neue", Arial;
-      background: var(--bg-gradient);
-      background-size: 100% 220px;
-      color:var(--text);
-      -webkit-font-smoothing:antialiased;
-      -moz-osx-font-smoothing:grayscale;
-      line-height:1.5;
-    }
+  <link rel="canonical" href="https://deve123-dev.github.io/benjamin-bino.github.io/" />
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Benjamin Bino | Portfolio" />
+  <meta property="og:description" content="IT student and developer — projects in web, Android, and AI. Resume, certifications, and contact info." />
+  <meta property="og:url" content="https://deve123-dev.github.io/benjamin-bino.github.io/" />
+  <meta property="og:image" content="https://deve123-dev.github.io/benjamin-bino.github.io/benjamin.jpg" />
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Benjamin Bino | Portfolio" />
+  <meta name="twitter:description" content="IT student and developer — projects in web, Android, and AI." />
+  <meta name="twitter:image" content="https://deve123-dev.github.io/benjamin-bino.github.io/benjamin.jpg" />
 
-    /* Page container */
-    .container{
-      max-width:var(--max-width);
-      margin: 1rem auto 3rem;
-      padding: 0 1rem;
-    }
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='12' fill='%23000'/%3E%3Ctext x='32' y='43' font-family='Segoe UI, Arial, sans-serif' font-size='28' font-weight='700' fill='%23FFD700' text-anchor='middle'%3EBB%3C/text%3E%3C/svg%3E" />
 
-    /* Sticky header / nav */
-    header{
-      background:var(--black);
-      color:var(--gold);
-      text-align:center;
-      padding:1.25rem 1rem;
-      border-bottom:4px solid var(--gold);
-      position:sticky;
-      top:0;
-      z-index:40;
-    }
-    header .top{
-      display:flex;
-      align-items:center;
-      justify-content:space-between;
-      gap:1rem;
-      max-width:var(--max-width);
-      margin:0 auto;
-      padding:0 1rem;
-    }
-    header h1{margin:0;font-size:1.6rem}
-    header p{margin:0;font-size:0.95rem;color:#e6c84d}
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
 
-    /* Nav */
-    nav{
-      display:flex;
-      gap:0.5rem;
-      align-items:center;
-      flex-wrap:wrap;
-    }
-    nav a{
-      color:var(--gold);
-      text-decoration:none;
-      background:transparent;
-      padding:6px 10px;
-      border-radius:6px;
-      font-size:0.9rem;
-    }
-    nav a:hover{background:rgba(255,215,0,0.08)}
-
-    /* Sections */
-    section{
-      background:var(--card-bg);
-      margin:var(--gap) 0;
-      padding:1.25rem;
-      border-radius:var(--radius);
-      box-shadow: 0 2px 8px rgba(0,0,0,0.35);
-    }
-    section h2{
-      color:var(--gold);
-      margin:0 0 0.75rem 0;
-      padding-bottom:0.25rem;
-      border-bottom:2px solid var(--gold);
-      display:inline-block;
-      font-size:1.15rem;
-    }
-
-    /* About */
-    .about{
-      display:flex;
-      gap:1rem;
-      align-items:flex-start;
-      flex-wrap:wrap;
-    }
-    .profile-img{
-      width:160px;
-      max-width:40%;
-      border-radius:8px;
-      border:3px solid var(--gold);
-      object-fit:cover;
-      flex:0 0 160px;
-      background:#111;
-    }
-    .about p{flex:1 1 320px;margin:0}
-
-    /* Projects list */
-    ul.projects{list-style:none;padding:0;margin:0;display:grid;grid-template-columns:repeat(2,1fr);gap:0.75rem}
-    ul.projects li{
-      background:linear-gradient(90deg,#000,#111);
-      padding:0.9rem;
-      border-left:5px solid var(--gold);
-      border-radius:6px;
-      font-size:0.95rem;
-    }
-    ul.projects li a{display:inline-block;margin-top:0.5rem;color:var(--gold)}
-
-    /* Single-column for lists like certifications/skills */
-    ul.simple{list-style:none;padding:0;margin:0}
-    ul.simple li{padding:0.45rem 0;border-bottom:1px dashed rgba(255,215,0,0.06)}
-
-    /* Buttons */
-    .btn{
-      display:inline-block;
-      padding:10px 16px;
-      border-radius:6px;
-      text-decoration:none;
-      font-weight:600;
-      margin-right:0.5rem;
-    }
-    .btn.gold{background:var(--gold);color:#000}
-    .btn.dark{background:var(--black);color:var(--gold);border:1px solid rgba(255,215,0,0.06)}
-
-    /* Footer / contact */
-    .contact p{margin:0.25rem 0}
-
-    /* Responsive rules - mobile first */
-    @media (max-width:900px){
-      ul.projects{grid-template-columns:repeat(1,1fr)}
-      .profile-img{max-width:180px;flex-basis:180px}
-    }
-
-    @media (max-width:600px){
-      header .top{flex-direction:column;align-items:flex-start;padding:0.75rem 1rem}
-      header h1{font-size:1.25rem}
-      header p{font-size:0.9rem}
-      .about{flex-direction:column;align-items:center;text-align:center}
-      .about p{text-align:left}
-      .profile-img{margin:0 auto}
-      section{padding:0.9rem}
-      nav{justify-content:center;width:100%}
-      nav a{font-size:0.85rem;padding:6px 8px}
-    }
-
-    /* Small tweaks for very small screens */
-    @media (max-width:380px){
-      header h1{font-size:1.05rem}
-      .profile-img{width:140px;flex-basis:140px}
-      .btn{padding:8px 10px;font-size:0.9rem}
-    }
-
-    /* Utility */
-    .muted{color:#d9c77a;font-size:0.95rem}
-    .small{font-size:0.9rem}
-  </style>
+  <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
+  <a class="skip-link" href="#main-content">Skip to content</a>
+
   <header>
     <div class="top">
-      <div>
-        <h1>Benjamin Bino</h1>
-        <p class="muted">Information Technology Student | IT Enthusiast</p>
-      </div>
+      <a class="wordmark" href="#main-content">Benjamin<span>.</span></a>
 
       <nav aria-label="Main navigation">
         <a href="#about">About</a>
         <a href="#projects">Projects</a>
         <a href="#certifications">Certifications</a>
+        <a href="#awards">Awards</a>
         <a href="#skills">Skills</a>
         <a href="#resume">Resume</a>
         <a href="#diploma">Diploma</a>
-        <a href="#contact">Contact</a>
+        <a href="#contact" class="cta">Contact</a>
       </nav>
     </div>
   </header>
 
-  <main class="container">
+  <div class="hero">
+    <p class="eyebrow">Information Technology Student</p>
+    <h1 class="hero-name">Benjamin Bino</h1>
+    <p class="hero-tagline">Building web apps, an Android app, and AI-powered tools — currently open to internships and collaboration in IT and digital innovation.</p>
+    <div class="hero-actions">
+      <a class="btn gold" href="Benjamin_Bino_Resume.pdf" target="_blank" rel="noopener">View Resume</a>
+      <a class="btn dark" href="#contact">Get in Touch</a>
+    </div>
+  </div>
+
+  <main class="container" id="main-content">
     <!-- About -->
     <section id="about">
       <h2>About Me</h2>
@@ -216,48 +80,56 @@
         <li>
           <strong>Bookstore Website</strong><br>
           A functional online bookstore with cart, checkout, and book listings. Built using HTML, CSS and JavaScript.
+          <ul class="tags"><li>HTML</li><li>CSS</li><li>JavaScript</li></ul>
           <br><a href="https://deve123-dev.github.io/websites-/" target="_blank" rel="noopener">Visit My Website</a>
         </li>
 
         <li>
-          <strong>BaKery Website</strong><br>
-          Front-end website for Cathlyn’s Baked Goods.
+          <strong>Bakery Website</strong><br>
+          Front-end website for Cathlyn's Baked Goods.
+          <ul class="tags"><li>HTML</li><li>CSS</li><li>JavaScript</li></ul>
           <br><a href="https://deve123-dev.github.io/bakery/" target="_blank" rel="noopener">Visit My Website</a>
         </li>
 
         <li>
           <strong>Budgeting WebApp</strong><br>
           Front-end budget app named Budget Friendly.
+          <ul class="tags"><li>HTML</li><li>CSS</li><li>JavaScript</li></ul>
           <br><a href="https://deve123-dev.github.io/BudgetWebApp/" target="_blank" rel="noopener">Visit My Website</a>
         </li>
 
         <li>
           <strong>RPNGC Emergency Dispatch System</strong><br>
           A real-time emergency response and dispatch management system built for the Royal Papua New Guinea Constabulary (RPNGC). Features include citizen, officer, and HQ portals, live GPS tracking, incident lifecycle management, secure JWT authentication, in-incident messaging, and analytics dashboards.
+          <ul class="tags"><li>Full-Stack</li><li>JWT Auth</li><li>Real-Time GPS</li></ul>
           <br><a href="https://github.com/DEVE123-dev/RPNGC-eds.git" target="_blank" rel="noopener">View Project on GitHub</a>
         </li>
 
         <li>
           <strong>Devetext - AI powered text processing tool</strong><br>
           A powerful web application that uses AI models to paraphrase, humanize, and detect AI-generated text.
+          <ul class="tags"><li>AI</li><li>Web App</li></ul>
           <br><a href="https://devetext-frontend.onrender.com" target="_blank" rel="noopener">View Project on Render</a>
         </li>
 
         <li>
           <strong>ChatBot.deve – AI Chatbot</strong><br>
-          Streamlit-based chatbot powered by Groq’s Llama 3.3 70B model with a black-and-gold UI and chat history management.
+          Streamlit-based chatbot powered by Groq's Llama 3.3 70B model with a black-and-gold UI and chat history management.
+          <ul class="tags"><li>Python</li><li>Streamlit</li><li>Groq / Llama 3.3</li></ul>
           <br><a href="https://github.com/DEVE123-dev/chatBot.deve.git" target="_blank" rel="noopener">View Project on GitHub</a>
         </li>
 
         <li>
           <strong>Daily Motivation App</strong><br>
           Native Android app in Kotlin (Jetpack Compose) showing daily quotes, favorites, and offline support.
+          <ul class="tags"><li>Kotlin</li><li>Jetpack Compose</li><li>Android</li></ul>
           <br><a href="https://github.com/DEVE123-dev/Daily-Motivation-App" target="_blank" rel="noopener">View Project on GitHub</a>
         </li>
 
         <li>
           <strong>GPA Calculator</strong><br>
           Responsive web app to calculate Grade Point Average. Built with HTML, CSS, and JavaScript.
+          <ul class="tags"><li>HTML</li><li>CSS</li><li>JavaScript</li></ul>
           <br><a href="https://github.com/DEVE123-dev/GPA-Calculator" target="_blank" rel="noopener">View Project on GitHub</a>
           <br><a href="https://deve123-dev.github.io/GPA-Calculator/" target="_blank" rel="noopener">Try the Live App</a>
         </li>
@@ -265,19 +137,28 @@
         <li>
           <strong>Sepik Fresh Order Tracking System</strong><br>
           Web-based platform for managing poultry and egg deliveries with role-based access and real-time tracking.
+          <ul class="tags"><li>Web App</li><li>Role-Based Access</li><li>Real-Time</li></ul>
           <br><a href="https://github.com/DEVE123-dev/Sepik-Fresh-Order-Tracking-System-" target="_blank" rel="noopener">View Project on GitHub</a>
         </li>
 
         <li>
           <strong>Omni-Farm Guardian</strong><br>
           Universal livestock management tool using computer vision to automatically identify animals.
+          <ul class="tags"><li>Computer Vision</li><li>Python</li></ul>
           <br><a href="https://github.com/DEVE123-dev/Omni-farm-guardian-" target="_blank" rel="noopener">View Project on GitHub</a>
         </li>
 
         <li>
           <strong>SpecBench – Device Specs Utility</strong><br>
           Utility app for gamers to check and benchmark device specifications.
+          <ul class="tags"><li>Utility App</li></ul>
           <br><a href="https://github.com/DEVE123-dev/specbench" target="_blank" rel="noopener">View Project on GitHub</a>
+        </li>
+
+        <li>
+          <strong>Ad-Free Music Player <span class="badge">In Progress</span></strong><br>
+          Cross-platform, ad-free music player app — currently in development as part of my portfolio.
+          <ul class="tags"><li>Cross-Platform</li></ul>
         </li>
       </ul>
     </section>
@@ -285,16 +166,52 @@
     <!-- Certifications -->
     <section id="certifications">
       <h2>Certifications</h2>
-      <p>Here are selected certifications that highlight my core IT, AI, and data skills:</p>
+      <p class="muted">21 certifications across AI, cloud, cybersecurity, and networking — grouped by issuer.</p>
+
+      <h3>Microsoft</h3>
+      <ul class="simple two-col">
+        <li><a href="INTRODUCTION TO AI CONCEPTS.pdf" target="_blank" rel="noopener">Introduction to AI Concepts</a> <span class="small muted">· Jul 2025</span></li>
+        <li><a href="Design a dta ingestion strategy for machine learning projects.pdf" target="_blank" rel="noopener">Design a Data Ingestion Strategy for ML Projects</a> <span class="small muted">· Jul 2025</span></li>
+        <li><a href="Work with compute Targets in azure machine learning.pdf" target="_blank" rel="noopener">Work with Compute Targets in Azure Machine Learning</a> <span class="small muted">· Jul 2025</span></li>
+        <li><a href="Achievements - benjaminbino-8087 _ Microsoft Learn.pdf" target="_blank" rel="noopener">Run a Training Script as a Command Job in Azure ML</a> <span class="small muted">· Jul 2025</span></li>
+      </ul>
+
+      <h3>IBM SkillsBuild</h3>
+      <ul class="simple two-col">
+        <li><a href="AIFundamentalsLanguageandVisioninAI_Badge20260619-32-ck36z3.pdf" target="_blank" rel="noopener">AI Fundamentals: Language and Vision in AI</a> <span class="small muted">· Jun 2026</span> · <a class="small" href="https://www.credly.com/go/9KwGOwGr" target="_blank" rel="noopener">Verify</a></li>
+        <li><a href="IBM cert data fundamentals.pdf" target="_blank" rel="noopener">Data Fundamentals</a> <span class="small muted">· Jul 2025</span> · <a class="small" href="https://www.credly.com/badges/4c78516d-a28c-4116-9ec3-c45459d12bce" target="_blank" rel="noopener">Verify</a></li>
+      </ul>
+
+      <h3>Cisco Networking Academy</h3>
+      <ul class="simple two-col">
+        <li><a href="JavaScript_Essentials_1_certificate_devesmash79-gmail-com_f1b5bd23-b54c-4995-91ba-26321a7cd452.pdf" target="_blank" rel="noopener">JavaScript Essentials 1</a> <span class="small muted">· Jul 2026</span></li>
+        <li><a href="Digital_Awareness_certificate_devesmash79-gmail-com_e3666493-ea33-45b4-b841-ec53599ec19a.pdf" target="_blank" rel="noopener">Digital Awareness</a> <span class="small muted">· Mar 2026</span></li>
+        <li><a href="cyber.pdf" target="_blank" rel="noopener">Introduction to Cybersecurity</a> <span class="small muted">· Feb 2026</span></li>
+        <li><a href="Operating_Systems_Basics_certificate normal one.pdf" target="_blank" rel="noopener">Operating Systems Basics</a> <span class="small muted">· Sep 2025</span></li>
+        <li><a href="IntrotoGreenhouseGasAccounting badge included.pdf" target="_blank" rel="noopener">Intro to Greenhouse Gas Accounting for IT</a> <span class="small muted">· Sep 2025</span></li>
+        <li><a href="Getting_Started_with_Cisco_Packet_Tracer_certificate_devesmash79-gmail-com_61188143-3d09-4f0d-a8b9-07329f17592e.pdf" target="_blank" rel="noopener">Getting Started with Cisco Packet Tracer</a> <span class="small muted">· Jun 2025</span></li>
+        <li><a href="Exploring_Networking_with_Cisco_Packet_Tracer_certificate_devesmash79-gmail-com_43d8fc33-ccbc-49b0-b924-f3ce01959c93.pdf" target="_blank" rel="noopener">Exploring Networking with Cisco Packet Tracer</a> <span class="small muted">· Jun 2025</span></li>
+        <li><a href="data science cert cisco.pdf" target="_blank" rel="noopener">Introduction to Data Science</a> <span class="small muted">· Jun 2025</span></li>
+        <li><a href="computer basics cert. cisco.pdf" target="_blank" rel="noopener">Computer Hardware Basics</a> <span class="small muted">· Jun 2025</span></li>
+      </ul>
+
+      <h3>IBSUniversity <span class="muted small">(via Cisco Networking Academy)</span></h3>
+      <ul class="simple two-col">
+        <li><a href="Endpoint_Security_certificate_devesmash79-gmail-com_51fc350f-04d2-4699-8e44-639a65f43693.pdf" target="_blank" rel="noopener">Endpoint Security</a> <span class="small muted">· Jun 2026</span></li>
+        <li><a href="Cyber_Threat_Management_certificate_devesmash79-gmail-com_f3a45e98-ab7b-4f05-9a31-a38ca8fc6a31.pdf" target="_blank" rel="noopener">Cyber Threat Management</a> <span class="small muted">· Jun 2026</span></li>
+        <li><a href="Apply_AI-_Analyze_Customer_Reviews_certificate_devesmash79-gmail-com_8306f009-635b-474f-bd8f-0c475d734a42.pdf" target="_blank" rel="noopener">Apply AI: Analyze Customer Reviews</a> <span class="small muted">· Jun 2026</span></li>
+        <li><a href="Apply_AI-_Update_Your_Resume_certificate_devesmash79-gmail-com_84718514-3d1e-424a-917f-0db5b102755e.pdf" target="_blank" rel="noopener">Apply AI: Update Your Resume</a> <span class="small muted">· Apr 2026</span></li>
+        <li><a href="IT_Essentials_certificate_devesmash79-gmail-com_512169ca-8fce-49ba-80ac-f44ce6807bb4.pdf" target="_blank" rel="noopener">IT Essentials</a> <span class="small muted">· Sep 2025</span></li>
+        <li><a href="Introduction_to_Modern_AI_certificate_devesmash79-gmail-com_95b6e360-e364-4a2a-a078-24d8a3a07fdc.pdf" target="_blank" rel="noopener">Introduction to Modern AI</a> <span class="small muted">· Jun 2025</span></li>
+      </ul>
+    </section>
+
+    <!-- Awards -->
+    <section id="awards">
+      <h2>Awards</h2>
       <ul class="simple">
-        <li><a href="computer basics cert. cisco.pdf" target="_blank" rel="noopener">Cisco Networking Academy – Computer Hardware Basics</a></li>
-        <li><a href="data science cert cisco.pdf" target="_blank" rel="noopener">Cisco Networking Academy – Introduction to Data Science</a></li>
-        <li><a href="learn a thon cert. cisco.pdf" target="_blank" rel="noopener">Cisco Networking Academy – Learn-A-Thon Achievement Award</a></li>
-        <li><a href="Introduction_to_Modern_AI_certificate_devesmash79-gmail-com_95b6e360-e364-4a2a-a078-24d8a3a07fdc (1).pdf" target="_blank" rel="noopener">Cisco – Introduction to Modern AI (via IBSUniversity)</a></li>
-        <li><a href="IBM cert data fundamentals.pdf" target="_blank" rel="noopener">IBM SkillsBuild – Data Fundamentals</a></li>
-        <li><a href="Work with compute Targets in azure machine learning.pdf" target="_blank" rel="noopener">Microsoft – Work with Compute Targets in Azure Machine Learning</a></li>
-        <li><a href="INTRODUCTION TO AI CONCEPTS.pdf" target="_blank" rel="noopener">Microsoft – Introduction to AI Concepts</a></li>
-        <li><a href="cyber.pdf" target="_blank" rel="noopener">Cisco – Introduction to CyberSecurity</a></li>
+        <li><a href="Networking_Academy_Learn-A-Thon_2026_certificate_devesmash79-gmail-com_c3e35382-c1b2-41dd-bc1a-7963984d9655.pdf" target="_blank" rel="noopener">Networking Academy Learn-A-Thon 2026 – Learner Achievement Award</a> <span class="small muted">· Jun 2026</span></li>
+        <li><a href="learn a thon cert. cisco.pdf" target="_blank" rel="noopener">Networking Academy Learn-A-Thon 2025 – Learner Achievement Award</a> <span class="small muted">· May 2025</span></li>
       </ul>
     </section>
 
@@ -336,12 +253,20 @@
     <section id="contact">
       <h2>Contact</h2>
       <div class="contact">
-        <p>Phone: +675 76831365</p>
-        <p>Phone: +675 74890262</p>
-        <p>Email: devesmash79@gmail.com | benjaminbino19@gmail.com</p>
+        <p>Phone: <a href="tel:+67576831365">+675 76831365</a></p>
+        <p>Phone: <a href="tel:+67574890262">+675 74890262</a></p>
+        <p>Email: <a href="mailto:devesmash79@gmail.com">devesmash79@gmail.com</a> | <a href="mailto:benjaminbino19@gmail.com">benjaminbino19@gmail.com</a></p>
         <p>LinkedIn: <a href="https://www.linkedin.com/in/benjamin-bino-9083b3263/" target="_blank" rel="noopener">linkedin.com/in/benjamin-bino</a></p>
       </div>
     </section>
   </main>
+
+  <footer>
+    <p>&copy; <span id="year"></span> Benjamin Bino. Built with HTML, CSS &amp; JavaScript.</p>
+  </footer>
+
+  <button id="backToTop" aria-label="Back to top" title="Back to top">&uarr;</button>
+
+  <script src="script.js" defer></script>
 </body>
 </html>
